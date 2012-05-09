@@ -1,32 +1,29 @@
 <footer class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="span4">
-			<a name="contact"></a>
-				<address>
-					<strong>Organisation</strong><br />
-					<a href="http://www.iut.univ-paris8.fr/">Département Informatique de l'IUT de Montreuil</a><br />
-				</address>
-			</div>
-			<div class="span4">
-				<address>
-					<strong>Responsables</strong><br />
-					<a href="mailto:p.bonnot@iut.univ-paris8.fr">Philippe Bonnot</a><br />
-					<a href="mailto:g.delmas@iut.univ-paris8.fr">Guylain Delmas</a>
-				</address>
-			</div>
-			<div class="span4">
-				<address style="color: #808080;">
-					<strong >Webdesign</strong><br />
-					<small>Benjamin Diemert</small><br />
-					<small style="color: #BFBFBF;">Inspiré de <a style="color: #BFBFBF;" href="http://twitter.github.com/bootstrap/">Bootstrap</a></small>
-				</address>
-			</div>
-<!-- 			<div class="span2">
-				<a href="http://www.iut.univ-paris8.fr/" class="thumbnail">
-					<img style="height:48px;" src="../img/iutmontreuil2010_logo.png" alt="L'IUT de Montreuil">
-				</a>
-			</div> -->
+			<?php
+			if (($handle = fopen(".".ORG, "r+")) !== FALSE) {
+
+				//Read the next line until there is no more
+				for ($i=0;$i<2;$i++) {
+					if (($data = fgetcsv($handle, 10000, ",")) !== FALSE && !is_null($data)) {
+						//opening html markups
+						echo'<div class="span7"><address>';
+						//Pull the first element of the array (title)
+						echo '<strong>'.array_shift($data).'</strong><br />';
+						//Continue with the rest of the array (content)
+						foreach ($data as $line) {
+							echo ' / '.$line;
+						}
+						//closing html markups
+						echo'</address></div>';
+					}
+				}
+			}
+			else {
+				echo'Erreur de lecture du fichier Organisateur';
+			}
+			?>
 		</div>
 	</div>
 </footer>
