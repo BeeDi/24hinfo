@@ -58,7 +58,7 @@ class Controller_Index extends Controller_Template{
 	}
 
 	public function contact(){
-		// if (($handle = fopen(".".ORG, "r+")) !== FALSE) {
+		if (($handle = fopen(".".ORG, "r+")) !== FALSE) {
 
 			$title = utf8_decode("Contacter les organisateurs des 24h"); 
 
@@ -67,9 +67,9 @@ class Controller_Index extends Controller_Template{
 			require 'View/index/contact.tpl';
 			// require 'View/footer.tpl';
 		}
-		// else {
-		// 	Controller_Error::documentNotFound("Page introuvable : Erreur de lecture du fichier Organisateur");
-		// }
+		else {
+			Controller_Error::documentNotFound("Page introuvable : Erreur de lecture du fichier Organisateur");
+		}
 	}
 
 	public function subscribe(){

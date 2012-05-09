@@ -5,31 +5,57 @@
 			<div class="span4">
 			<a name="contact"></a>
 				<address>
-					<strong>Organisation</strong><br />
 					<?php
-						// $data = fgetcsv($handle, 10000, ",");
-						// foreach ($data as $line) {
-						// 	echo $line."<br />";
-						// }
+						//Read the next line
+						$data = fgetcsv($handle, 10000, ",");
+						//Pull the first element of the array (title)
+						echo '<strong>'.array_shift($data).'</strong><br />';
+						//Continue with the rest of the array (content)
+						foreach ($data as $line) {
+							echo $line.'<br />';
+						}
 					?>
+					<!-- 
+					<strong>Organisation</strong><br />
 					<a href="http://www.iut.univ-paris8.fr/">Département Informatique de l'IUT de Montreuil</a><br />
 					140 rue de la Nouvelle France<br />
 					93100 MONTREUIL<br />
-					01 48 70 37 00<br />
+					01 48 70 37 00<br /> 
+					-->
 				</address>
 			</div>
 			<div class="span4">
 				<address>
-					<strong>Responsables</strong><br />
+					<?php
+						//Read the next line
+						$data = fgetcsv($handle, 10000, ",");
+						//Pull the first element of the array (title)
+						echo '<strong>'.array_shift($data).'</strong><br />';
+						//Continue with the rest of the array (content)
+						foreach ($data as $line) {
+							echo $line.'<br />';
+						}
+					?>
+					<!-- <strong>Responsables</strong><br />
 					<a href="mailto:p.bonnot@iut.univ-paris8.fr">Philippe Bonnot</a><br />
-					<a href="mailto:g.delmas@iut.univ-paris8.fr">Guylain Delmas</a>
+					<a href="mailto:g.delmas@iut.univ-paris8.fr">Guylain Delmas</a> -->
 				</address>
 			</div>
 			<div class="span4">
 				<address style="color: #808080;">
-					<strong style="color: #808080;">Webdesign</strong><br />
+					<?php
+						//Read the next line
+						$data = fgetcsv($handle, 10000, ",");
+						//Pull the first element of the array (title)
+						echo '<strong style="color: #808080;">'.array_shift($data).'</strong><br />';
+						//Continue with the rest of the array (content)
+						foreach ($data as $line) {
+							echo '<small style="color:#808080;">'.$line.'</small><br />';
+						}
+					?>
+					<!-- <strong style="color: #808080;">Webdesign</strong><br />
 					<small style="color: #808080;">Benjamin Diemert</small><br />
-					<small style="color: #BFBFBF;">Inspiré de <a style="color: #BFBFBF;" href="http://twitter.github.com/bootstrap/">Bootstrap</a></small>
+					<small style="color: #BFBFBF;">Inspiré de <a style="color: #BFBFBF;" href="http://twitter.github.com/bootstrap/">Bootstrap</a></small> -->
 				</address>
 			</div>
 <!-- 			<div class="span2">
